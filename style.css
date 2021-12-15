@@ -1,381 +1,111 @@
-$primary: #de5f5f;
-$black: #555;
-$grey: #343436;
-$lightgrey: #959595;
+/*--- GENERAL STYLES ---*/
+body { font-size: 16px; line-height: 1.5em; font-family: 'Quattrocento Sans', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', serif; font-weight: 700; color: #1a1a1a; }
+.content-section { min-height: 100vh; padding-top: 70px; padding-bottom: 20px; }
+.content-section h1 { color: #9C9C9C; font-weight: 400; font-size: 30px; display: inline-block; }
+.content-section h1:after { content: ''; display: block; border-bottom: 1px solid #DFDFDF; padding-top: 3px; }
+.content-section p.lead { font-family: 'Cardo', serif; font-size: 19px; line-height: 1.35em; margin-bottom: 25px; }
+.content-section p.lead em { font-size: 14px; }
+.content-section p em { font-size: 14px;}
+.content-section p mark em { font-size: inherit;}
+.content-section img.pull-right { border:1px solid #DFDFDF; margin-top: 140px;  }
 
-$font-serif: "ff-meta-serif-web-pro", serif;
-$font-sans: "nimbus-sans", sans-serif;
-
-$transition: all 0.3s cubic-bezier(.05, .69, .14, 1);
-
-html {
-    box-sizing: border-box;
-    font-family: $font-serif;
-    color: $black;
-    font-size: 16px;
-
-    @for $i from 1 through 20 {
-        @media (min-width: #{6.25 * $i}em) {
-            font-size: #{16 + $i}px;
-        }
-    }
-
-
+@media screen and (min-width: 768px) {
+  .content-section { padding-top: 130px; }
+  .content-section h1 { font-size: 34px; }
+  .content-section p.lead { margin-bottom: 30px; }
 }
 
-*,*::before,*::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+@media screen and (min-width: 992px) {
+  .content-section { padding-top: 160px; }
+  .content-section h1 { font-size: 38px; }
+  .content-section h1:after { padding-top: 5px; }
+  .content-section p.lead { font-size: 21px; margin-bottom: 35px; }
 }
 
-a {
-    text-decoration: none;
+@media screen and (min-width: 1200px) {
+  .content-section { padding-top: 160px; }
+  .content-section h1:after { padding-top: 7px; }
+  .content-section p.lead { font-size: 22px; margin-bottom: 35px; }
 }
 
 
-/**
- * The fixed Side 
- */
-$sideWidth: 50px;
-.side {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    width: $sideWidth;
-    border-right: 1px dashed rgba(black,.3);
-    color: rgba(black,.5);
-    font-family: $font-sans;
-    text-transform: uppercase;
-    letter-spacing: .0875rem;
-    font-size: 10px;
-    transition: $transition;
+/*--- NAVBAR ---*/
+.navbar-default { font-family: 'Montserrat', serif; background: #FFFFFF; border-bottom-color: #DFDFDF; height: 60px; margin-bottom: 0; }
+.navbar-header .navbar-toggle { margin-top: 12px; }
+.navbar-header .navbar-brand { letter-spacing: -0.03em; height: 60px; padding: 30px 10px 0 10px; font-size: 36px; line-height: 0px; font-weight: 700; color: #111; white-space: nowrap; }
+.navbar-default .navbar-brand:focus { color: #111; }
+.navbar-default .navbar-nav { background: #FFF; margin-top: 0; }
+.navbar-default .navbar-nav>li>a { color: #222; padding: 10px; border-bottom: 1px solid #DFDFDF; }
+.navbar-default .navbar-nav>li>a.selected { color: #E64B36; }
+.navbar-default a.navbar-brand:hover .navbar-default .navbar-nav>li>a:hover { background-color: #DFDFDF; }
+.navbar-default .navbar-brand:hover { color: #E64B36; }
 
-    &:hover {
-        color: rgba(black ,.5);
-    }
-
-    .side__inner {
-        position: relative;
-        height: 100%;
-        white-space: nowrap;
-    }
-
-    a {
-        color: inherit;
-        word-spacing: 0;
-        transition: $transition;
-    }
-
-    .top,
-    .bottom {
-        position: absolute;
-        left: 0;
-        transform:  rotate(-90deg) perspective(1px);
-        transform-origin: $sideWidth $sideWidth;
-        height: $sideWidth;
-        line-height: $sideWidth;
-        white-space: nowrap;
-        word-spacing: .5rem;
-    }
-
-    .top {
-        top: $sideWidth * .5;
-        text-align: right;
-        color: black;
-    }
-    .bottom {
-        top: auto;
-        bottom: $sideWidth * 1.5;
-
-        &:hover {
-            a {
-                color: rgba(black,.2);
-
-                &:hover {
-                    color: rgba(black,.8);
-                }
-            }
-        }
-    }
+@media screen and (min-width: 768px) {
+  .navbar-default { height: 100px; }
+  .navbar-header { width: 100%; }
+  .navbar-header .navbar-brand { height: 70px; padding: 40px 0 0 15px; font-size: 42px; }
+  .navbar-default .navbar-nav>li>a { padding: 0px 20px 9px 0; }
+  .navbar-default .navbar-nav>li>a:hover { background-color: transparent; color: #E64B36; }
 }
 
-/**
- * The first navigation
- */
-.anchornav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    li {
-        display: block;
-        &::after {
-            content: '';
-            width: 1.3rem;
-            display: block;
-            height: 2px;
-            background: black;
-        }
-
-        &:last-child::after{
-            display: none;
-        }
-    }
-
-    a {
-        display: block;
-        padding: 1em 0;
-        font-family: $font-sans;
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 1.4px;
-        color: inherit;   
-        transition: $transition;
-
-        span {
-            display: inline;
-            padding: .5em 0 0;
-            opacity: .3;
-            letter-spacing: normal;
-            font-family: $font-serif;
-            text-transform: none;
-        }
-
-        &:hover {
-            color: $primary;
-            span {
-                opacity: 1;
-                color: #181818;
-            }
-        }
-    }
+@media screen and (min-width: 992px) {
+  .navbar-default { height: 120px; }
+  .navbar-header .navbar-brand { height: 80px; padding: 45px 0 0 15px; font-size: 48px; }
+  .navbar-default .navbar-nav>li>a { padding: 10px 25px 9px 0; }
 }
 
-/**
- * The different sections
- */
-.section{
-    position: relative;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-    min-height: 60vh;
-    width: 100%;
-    align-content: center;
-    padding: 20vh $sideWidth 20vh $sideWidth * 1.5;
+  
+/*--- HOME ---*/
+#home {
+  background: url('https://s17.postimg.org/m4bfqfgn3/fog_1005445_1920.jpg') no-repeat center center fixed;
+  background-size: cover; text-shadow: 1px 1px 0 rgba(255,255,255,0.5); text-align: center;
+}
+#home h1 { font-family: 'Advent Pro', sans-serif; font-size: 96px; color: #000; display: inline-block; margin: 0; padding: 0; line-height: 90px; margin-top: 60px; }
+#home h1:after { border-bottom: 1px solid #AAA;  }
+#home h5 { font-size: 16px; color: #555; }
 
-    svg {
-        position: absolute;
-        top: -50px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 50px;
-
-        &.bottom {
-            bottom: 0;
-            top: auto;
-            fill: grey;
-        }
-    }
-    
-    .section__inner {
-        height: 100%;
-        max-width: 800px;
-        margin: auto auto auto 0;
-    }
-
-
-    &.section--hello {
-        background-color: #FDEF52;
-        color: #181818;        
-    }
-
-    &.section--intro {
-        background-color: white;
-        color: $black;        
-    }
-
-    &.section--about {
-        background-color: $primary;
-        color: white;
-
-        svg {
-            fill: $primary;
-        }
-    }
-
-    &.section--clients {
-        background-color: $grey;
-        color: white;
-
-        svg {
-            fill: $grey;
-        }
-    }
-
-    &.section--portfolio {
-        background-color: orange;
-        color: white;
-
-        svg {
-            top: -20px;
-            fill: orange;
-
-            &.bottom {
-                top: auto;
-                bottom: -50px;
-            }
-        }
-    }
-
-    &.section--portfolio1 {
-        background-color: #3A99D8;
-        color: white;
-
-        svg {
-            top: -50px;
-            fill: #3A99D8;
-        }
-    }
-    
-    
-    &.section--pepperhill {
-        
-
-        svg {
-            top: -50px;
-            fill: #3A99D8;
-        }
-    }
-    
-    
-
-    &.section--contact {
-        svg {
-            fill: white;
-        }
-    }
+@media screen and (min-width: 768px) {
+  #home h1 { font-size: 120px; line-height: 114px; }
+  #home h5 { font-size: 19px; }
 }
 
-/**
- * Typo
- */
-h1,.h1,h2,.h2,h3,.h3,h4,.h5 {
-    font-family: $font-sans;
-    font-weight: bold;    
-    margin: 0 0 1em;
-    line-height: 1;
-    letter-spacing: -1px;
-    
-    
-    @media (min-width: 30rem) {
-        letter-spacing: -2px;
-    }
-
-    a {
-        color: inherit;
-        &:hover {
-            border-bottom: .1875rem solid;
-        }
-    }
-
-    span {
-        color: $primary;
-    }
-}
-h1,.h1 {
-    font-size: 1.2rem;
-    @media (min-width: 30rem) {
-        font-size: 2.5rem;
-    }
-}
-h2,.h2 {
-    font-size: 1.2rem;
-    @media (min-width: 30rem) {
-        font-size: 2.5rem;
-    }
+@media screen and (min-width: 992px) {
+  #home h1 { font-size: 132px; margin-top: 70px; }
+  #home h5 { font-size: 21px; }
 }
 
-.pre {
-    display: inline-block;
-    font-size: 12px;
-    margin: 0;
-    opacity: .8;
-    letter-spacing: 1.4px;
-    word-spacing: .2rem;
-    text-transform: uppercase;
-    margin-bottom: 1em;
-    color: inherit;
-    //padding: 6px 5px 5px;
-    //background: rgba(black,.1);
-
-    span {
-        font-size: .9em;
-        margin-right: .4em;
-        //color: $primary;
-        opacity: .5;
-    }
-
-    &:hover {
-        opacity: 1;
-    }
+@media screen and (min-width: 1200px) {
+  #home h1 { font-size: 142px; line-height: 124px; }
+  #home h5 { font-size: 24px; }
 }
 
-p {
-    font-size: .75rem;
-    line-height: 1.4;
-    
-    @media (min-width: 30rem) {
-        font-size: .875rem;
-    }
 
-    a {
-        font-weight: bold;
-        color: inherit;
+/*--- PORTFOLIO ---*/
+.content-section .thumbnail { position: relative; overflow: hidden; cursor: pointer; }
+.content-section .thumbnail * { transition: all .25s; }
+.content-section .thumbnail h4 { font-size: 19px; font-weight: 400; }
+.content-section .thumbnail p { line-height: 24px; }
+.content-section .thumbnail:hover h4, .content-section .thumbnail:hover p { color: #AFAFAF; }
+.content-section .thumbnail:hover img { opacity: 0.25;  }
+.content-section .thumbnail:after { font-family: 'FontAwesome'; content: '\f121'; color: #FFF; font-size: 48px; line-height: 80px; top: 70%; position: absolute; text-align: center; display: inline-block; width: 100%; transition: all .35s; opacity: 0; width: 86px; height: 86px; margin-left: auto; margin-right: auto; left: 0; right: 0; border-radius: 50%; background: transparent; border:3px solid transparent; }
+.content-section .thumbnail:hover:after { top: 25%; opacity: 1; color: #FFFFFF; background: #AF6204; border:3px solid #FFFFFF; }
 
-        &:hover {
-            border-bottom: .1875rem solid;
-        }
-    }
+
+/*--- CONTACT ---*/
+#contact {
+  background: url('https://s18.postimg.org/z7eckrogp/seagulls_984529_1920.jpg') no-repeat top center fixed;
+  background-size: cover;
 }
 
-.lead {
-    display: block;
-    font-size: .875rem;
-    margin: 0;
-
-    @media (min-width: 30rem) {
-        font-size: 1rem;
-    }
-}
-
-.portfolio {
-    font-size: .75rem;
-    
-    &.block {
-        display: inline-block;
-        width: 100%;
-        
-        @media (min-width: 30rem) {    
-            width: 30%;
-        }
-    }
-        
-    .link {
-        display: block;
-        margin: 2em 0 0 0;
-        color: $black;
-        letter-spacing: 2px;
-        font-size: 12px;
-    }
-    
-    p {
-        font-size: inherit;
-        color: $grey;
-        opacity: .7;
-    }
-}
+.social-cont { max-width: 400px; }
+a.btn-default { height: 44px; border-radius: 0; border: 0; width: 180px; text-align: left; margin: 0 5px 10px 0; position: relative; background-color: #FFFFFF; padding: 10px; transition: all .35s; padding: 0; line-height: 47px; overflow: hidden; }
+a.btn-default i { display: block; float: left; position: absolute; left: 12px; top: 10px; font-size: 24px; color: #FFFFFF; position: relative; z-index: 1;  }
+a.btn-default span { position: relative; z-index: 1; padding-left: 30px; }
+a.btn-default:after { content: ''; display: block; width: 44px; height: 44px; position: absolute; top: 0; left: 0; z-index: 0; transition: all .35s; }
+a.twitter-btn:after { background-color: #55ACEE; }
+a.github-btn:after { background-color: #171515; }
+a.linkedin-btn:after { background-color: #0077B5; }
+a.fcc-btn:after { background-color: #4B2B0D; }
+a.btn-default:hover, a.btn-default:focus { background-color: #FFFFFF; color: #FFFFFF; }
+a.btn-default:hover:after { width: 100%; }
