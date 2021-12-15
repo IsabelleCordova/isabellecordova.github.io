@@ -63,3 +63,30 @@ header li a {
     font-size: 1.5em;
     border: 3px solid white;
 }
+
+h3 {
+    width: 100vw;
+    padding-top: 5em;
+    display: flex;
+    text-align: center;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    background-position: center;
+}
+
+h4 {
+    text-align: center;
+    color: black;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5em;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    background-position: center;
+}
+
