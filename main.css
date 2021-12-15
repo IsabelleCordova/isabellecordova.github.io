@@ -4,6 +4,7 @@ header img {
 }
 body {
     height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
     background-size: cover;
     font-family: sans-serif;
     margin-top: 80px;
@@ -23,7 +24,6 @@ header {
     height: 80px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 25px 0 black;
 }
 
 header * {
