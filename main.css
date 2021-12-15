@@ -8,6 +8,7 @@ body {
     height: 100vh;
     display: flex;
     text-align: center;
+    color: white;
     justify-content: center;
     align-items: center;
     background-image: url("bg.jpg");
