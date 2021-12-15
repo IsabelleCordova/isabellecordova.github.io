@@ -1,17 +1,7 @@
-header img {
-    height: 80px;
-    margin-left: 40px;
-}
 body {
     height: 125vh;
-    background-size: cover;
     font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
+    margin-top: 50px;
 }
 
 header {
@@ -48,9 +38,7 @@ header li a {
     align-items: center;
     background-image: url("bg.jpg");
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center;
 }
 
 .hero h1 {
@@ -60,7 +48,7 @@ header li a {
     margin-bottom: 0.5em;
 }
 
-.hero .btn {
+.hero .button {
     display: block;
     width: 200px;
     padding: .5em;
